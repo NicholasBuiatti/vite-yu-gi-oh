@@ -1,16 +1,33 @@
 <script>
+import dataCard from "../../data/dataCard.js";
+export default {
+    props: {
 
+    },
+    components: {
+
+    },
+    data() {
+        return {
+
+            dataCard
+        }
+    },
+    methods: {
+        archetypeSelected() {
+
+        },
+    },
+}
 </script>
 
 <template>
     <div class="dropdown p-2">
         <button class="btn bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown button
+            Select archetype
         </button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li v-for="card in dataCard">{{ card.archetype }}</li>
         </ul>
     </div>
 </template>
