@@ -1,4 +1,6 @@
-let dati = [
+import { reactive } from 'vue';
+
+const dati = reactive([
     {
         name: "\"A\" Cell Breeding Device",
         type: "Spell Card",
@@ -169,4 +171,6 @@ let dati = [
                 },
             ],
     },
-];
+]);
+
+export default dati;
