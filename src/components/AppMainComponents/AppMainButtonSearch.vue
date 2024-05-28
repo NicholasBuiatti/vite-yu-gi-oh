@@ -17,10 +17,17 @@ export default {
         }
     },
     methods: {
+        // TENGO IN CONSIDERAZIONE IN BASE ALL'INDEX LA SCELTA CHE FACCIO COME INPUT
         archetypeSelected(index) {
             this.archetypeSelect = this.store.allArchetypes[index].archetype_name;
             this.archetypeInput = this.archetypeSelect
             // console.log(this.archetypeSelect);
+        },
+        // IMPOSTO LA RICERCA DIRETTAMENTE SULLA CHIAMATA AL SERVER
+        search() {
+            axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${this.archetypeSelect}`).then(risultato => {
+                this.store.card = risultato.data.data
+            });
         },
     },
 }
@@ -41,7 +48,7 @@ export default {
         </ul>
 
     </div>
-    <div v:model="archetypeInput"> {{ archetypeInput }}</div>
+    <button @click="search">Search</button>
 </template>
 
 <style scoped></style>
