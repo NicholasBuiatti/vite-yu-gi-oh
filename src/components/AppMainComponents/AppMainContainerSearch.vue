@@ -1,9 +1,9 @@
 <script>
-import AppMainCard from "./AppMainCard.vue";
+import AppMainCards from "./AppMainCards.vue";
 import store from "../../data/store.js"
 export default {
     components: {
-        AppMainCard,
+        AppMainCards,
     },
     data() {
         return {
@@ -18,7 +18,7 @@ export default {
         <div class="bg-dark text-white">
             <h5>Found {{ store.card.length }} cards</h5>
             <!-- qua ci va un ciclo v-for con le carte -->
-            <AppMainCard />
+            <AppMainCards />
         </div>
     </section>
 </template>
