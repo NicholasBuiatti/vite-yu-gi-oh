@@ -22,13 +22,16 @@ export default {
             this.archetypeSelect = this.store.allArchetypes[index].archetype_name;
             this.archetypeInput = this.archetypeSelect
             // console.log(this.archetypeSelect);
-        },
-        // IMPOSTO LA RICERCA DIRETTAMENTE SULLA CHIAMATA AL SERVER
-        search() {
             axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${this.archetypeSelect}`).then(risultato => {
                 this.store.card = risultato.data.data
             });
         },
+        // IMPOSTO LA RICERCA DIRETTAMENTE SULLA CHIAMATA AL SERVER
+        // search() {
+        //     axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${this.archetypeSelect}`).then(risultato => {
+        //         this.store.card = risultato.data.data
+        //     });
+        // },
     },
 }
 </script>
@@ -39,7 +42,7 @@ export default {
             aria-expanded="false">
             {{ archetypeInput }}
         </div>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu overflow-auto">
             <li v-for="archetype, i in this.store.allArchetypes" v:model="archetypeSelect"
                 @click="archetypeSelected(i)">
                 {{
@@ -48,7 +51,15 @@ export default {
         </ul>
 
     </div>
-    <button @click="search">Search</button>
+    <!-- <button @click="search">Search</button> -->
 </template>
 
-<style scoped></style>
+<style scoped>
+li {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    height: 20rem;
+}
+</style>

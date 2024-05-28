@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 #singleCard {
-    width: 10rem;
+    width: calc((100% / 5) - 1rem);
+    margin: 0.5rem
 }
 </style>

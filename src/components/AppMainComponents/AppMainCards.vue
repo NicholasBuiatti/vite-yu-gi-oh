@@ -25,7 +25,7 @@ export default {
 <template>
     <section class="container bg-white p-3">
         <!-- PRENDO I DATI DA AXIOS -->
-        <div class="row flex-wrap justify-content-between">
+        <div class="row flex-wrap">
             <AppSingleCard v-for="card in store.card" :parts='card' />
         </div>
         <!-- <pre class="text-dark">{{ dataCard }}</pre> -->
