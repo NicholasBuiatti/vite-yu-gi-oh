@@ -15,12 +15,12 @@ export default {
         }
     },
     created() {
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0").then(risultato => {
-            // this.store.personaggi = risultato.data.results;
-            console.log(risultato.data);
-
-            this.store.card = risultato.data.data
-            console.log(this.store);
+        // axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0&archetype=alien").then(risultato => {
+        //     this.store.card = risultato.data.data
+        // });
+        axios.get("https://db.ygoprodeck.com/api/v7/archetypes.php").then(risultato => {
+            this.store.allArchetypes = risultato.data
+            console.log(this.store.allArchetypes);
         });
     },
     mounted() {
